@@ -4,7 +4,7 @@ import { wedding } from '../config/wedding'
 import { OrnamentalDivider } from './OrnamentalDivider'
 
 export function Hero() {
-    const backgroundImage = 'url("/src/assets/images/hero_bg.jpg")'
+    const backgroundImage = 'url("/src/assets/images/hero_bg.webp")'
 
     return (
         <section

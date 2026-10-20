@@ -4,7 +4,7 @@ import { wedding } from '../config/wedding'
 
 
 export function StorySection() {
-    const storyImage = `/src/assets/images/our_history.jpg`
+    const storyImage = `/src/assets/images/our_history.webp`
     return (
         <section
             id="story"
