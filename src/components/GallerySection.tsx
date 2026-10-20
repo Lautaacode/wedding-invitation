@@ -1,50 +1,57 @@
 import { motion } from 'framer-motion'
 import { SectionHeader } from './SectionHeader'
+import campanopolis from '../assets/images/campanopolis.webp'
+import wicka from '../assets/images/wicka.webp'
+import umbrella from '../assets/images/umbrella.webp'
+import newYear from '../assets/images/new_year.webp'
+import conection from '../assets/images/conection.webp'
+import adrogueCoffee from '../assets/images/adrogue_coffee.webp'
+import grandmaGarden from '../assets/images/grandma_garden.webp'
 
 const photos = [
     {
-        src: 'src/assets/images/campanopolis.webp',
+        src: campanopolis,
         alt: 'campanopolis',
         className: 'md:col-span-2 md:row-span-2',
         mobilePosition: 'center center',
         desktopPosition: 'center center',
     },
     {
-        src: 'src/assets/images/wicka.webp',
+        src: wicka,
         alt: 'wicka',
         className: 'md:col-span-1 md:row-span-1',
         mobilePosition: 'center center',
         desktopPosition: 'center 10%',
     },
     {
-        src: 'src/assets/images/umbrella.webp',
+        src: umbrella,
         alt: 'umbrella',
         className: 'md:col-span-1 md:row-span-2',
         mobilePosition: 'center center',
         desktopPosition: 'center 10%',
     },
     {
-        src: 'src/assets/images/new_year.webp',
+        src: newYear,
         alt: 'new year',
         className: 'md:col-span-1 md:row-span-2',
         mobilePosition: 'center center',
         desktopPosition: 'center center',
     },
     {
-        src: 'src/assets/images/conection.webp',
+        src: conection,
         alt: 'conection',
         className: 'md:col-span-1 md:row-span-1',
         mobilePosition: 'center center',
         desktopPosition: 'center center',
     },
     {
-        src: 'src/assets/images/adrogue_coffee.webp',
+        src: adrogueCoffee,
         alt: 'adrogue coffee',
         className: 'md:col-span-1 md:row-span-1',
         mobilePosition: 'center center',
         desktopPosition: 'center 10%',
     },{
-        src: 'src/assets/images/grandma_garden.webp',
+        src: grandmaGarden,
         alt: 'grandma garden',
         className: 'md:col-span-1 md:row-span-1',
         mobilePosition: 'center center',

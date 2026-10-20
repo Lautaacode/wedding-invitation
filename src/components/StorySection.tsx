@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion'
 import { SectionHeader } from './SectionHeader'
 import { wedding } from '../config/wedding'
-
+import storyImage from '../assets/images/our_history.webp'
 
 export function StorySection() {
-    const storyImage = `/src/assets/images/our_history.webp`
     return (
         <section
             id="story"

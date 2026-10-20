@@ -2,9 +2,10 @@ import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { wedding } from '../config/wedding'
 import { OrnamentalDivider } from './OrnamentalDivider'
+import heroBg from '../assets/images/hero_bg.webp'
 
 export function Hero() {
-    const backgroundImage = 'url("/src/assets/images/hero_bg.webp")'
+    const backgroundImage = `url("${heroBg}")`
 
     return (
         <section
