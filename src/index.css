@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400,20,1;1,9..144,400,20,1&family=Inter:wght@300;400;500&family=Monsieur+La+Doulaise&display=swap');
+
+@import "tailwindcss";
+
+/* =================================
+   PALETA Y BASE
+================================= */
+
+:root {
+    --navy: #071a3d;
+    --navy-light: #102b5c;
+    --navy-soft: #1b3768;
+    --navy-deep: #101b2b;
+
+    --ivory: #f8f7f3;
+    --white: #ffffff;
+    --white-soft: #f1f2f4;
+
+    --text: #071a3d;
+    --text-light: #f8f7f3;
+
+    --muted: #66738a;
+    --muted-light: rgba(248, 247, 243, 0.68);
+
+    --line: rgba(7, 26, 61, 0.14);
+    --line-light: rgba(248, 247, 243, 0.18);
+    --navy-line: rgba(183, 194, 207, 0.22);
+    --title-color: #f4f0e8;
+
+    --font-script: 'Monsieur La Doulaise', cursive;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', sans-serif;
+    --font-initials: 'Fraunces', serif;
+
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--ivory);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =================================
+   RESET Y BASE
+================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    /* Las secciones comienzan en el borde superior */
+    scroll-padding-top: 0;
+
+    /* Ajuste suave entre secciones */
+    scroll-snap-type: y proximity;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    min-height: 100svh;
+    background: var(--ivory);
+    overflow-wrap: break-word;
+}
+
+img,
+video,
+svg {
+    max-width: 100%;
+}
+
+img {
+    display: block;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background: var(--navy);
+    color: var(--ivory);
+}
+
+/* Evita desbordamientos por palabras o títulos largos */
+
+h1,
+h2,
+h3,
+p {
+    overflow-wrap: break-word;
+}
+
+/* =================================
+   SECCIONES: ALTURA Y NAVEGACIÓN
+================================= */
+
+/*
+   Las secciones identificadas mediante id
+   ocupan al menos toda la pantalla.
+
+   Los enlaces #home, #story, #day, etc.
+   quedan alineados al inicio de la sección.
+*/
+
+section[id] {
+    position: relative;
+    min-width: 0;
+    max-width: 100%;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    box-sizing: border-box;
+    scroll-margin-top: 0;
+    scroll-snap-align: start;
+}
+
+/*
+   Compatibilidad con secciones que utilizan
+   las clases de estilo del proyecto.
+*/
+
+section,
+.section-container {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* =================================
+   TIPOGRAFÍA
+================================= */
+
+@layer components {
+    .script-font {
+        font-family: var(--font-script);
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .subtitle-font {
+        font-family: var(--font-display);
+        font-weight: 100;
+        font-style: italic;
+    }
+
+
+    .display-font {
+        font-family: var(--font-display);
+        font-weight: 400;
+    }
+
+    .body-font {
+        font-family: var(--font-body);
+    }
+
+    /* Iniciales del navbar */
+
+    .fraunces-font {
+        font-family: var(--font-initials);
+        font-weight: 400;
+        font-style: normal;
+        font-optical-sizing: auto;
+        font-variation-settings: "SOFT" 20, "WONK" 1;
+    }
+
+    .eyebrow {
+        font-family: var(--font-body);
+        font-size: 10px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.32em;
+    }
+
+    /* =================================
+       ESTILOS DE SECCIONES
+    ================================= */
+
+    .section-light {
+        background: var(--ivory);
+        color: var(--navy);
+    }
+
+    .section-white {
+        background: var(--white);
+        color: var(--navy);
+    }
+
+    .section-navy {
+        background: var(--navy);
+        color: var(--ivory);
+    }
+
+    .section-navy-deep {
+        background: var(--navy-deep);
+        color: var(--ivory);
+    }
+
+    /* =================================
+       LÍNEAS Y ORNAMENTOS
+    ================================= */
+
+    .line-light {
+        border-color: var(--line);
+    }
+
+    .line-navy {
+        border-color: var(--line-light);
+    }
+
+    /* =================================
+       FORMULARIOS
+    ================================= */
+
+    .input {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        border: 0;
+        border-bottom: 1px solid rgba(248, 247, 243, 0.25);
+        border-radius: 0;
+        background: transparent;
+        padding: 0.75rem 0;
+        color: var(--ivory);
+        outline: none;
+        transition: border-color 200ms ease;
+    }
+
+    .input::placeholder {
+        color: rgba(248, 247, 243, 0.45);
+    }
+
+    .input:focus-visible {
+        border-color: rgba(248, 247, 243, 0.8);
+    }
+
+    select.input option {
+        background: var(--navy);
+        color: var(--ivory);
+    }
+}
+
+/* =================================
+   TIPOGRAFÍA RESPONSIVE
+================================= */
+
+/* Títulos de secciones */
+
+section h2,
+.section-title {
+    max-width: 100%;
+    margin-inline: auto;
+    font-size: clamp(2rem, 5vw, 4.25rem);
+    line-height: 1.08;
+    font-weight: 400;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+}
+
+/* Nombres de los novios */
+
+.couple-names,
+.hero-title {
+    max-width: 100%;
+    margin-inline: auto;
+    font-size: clamp(2.5rem, 8vw, 6.5rem);
+    line-height: 1.05;
+    font-weight: 400;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+}
+
+/* Subtítulos y textos pequeños */
+
+.section-subtitle {
+    max-width: 42rem;
+    margin-inline: auto;
+    font-size: clamp(0.9rem, 1.5vw, 1.125rem);
+    line-height: 1.7;
+}
+
+/* Separación de títulos y contenido */
+
+.section-title,
+section h2 {
+    margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* =================================
+   RESPONSIVE MÓVIL
+================================= */
+
+@media (max-width: 640px) {
+    section {
+        padding-inline: 1.25rem;
+    }
+
+    section h2,
+    .section-title {
+        font-size: clamp(1.8rem, 8vw, 2.75rem);
+        line-height: 1.12;
+        letter-spacing: -0.025em;
+    }
+
+    .couple-names,
+    .hero-title {
+        font-size: clamp(2.4rem, 11vw, 4rem);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+    }
+}
+
+/* =================================
+   SEPARADORES Y ESPACIADO
+================================= */
+
+/* Separador editorial entre secciones */
+
+.section-divider {
+    width: min(100%, 68rem);
+    height: 1px;
+    margin: 0 auto;
+    border: 0;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--navy-line) 18%,
+            var(--navy-line) 82%,
+            transparent 100%);
+}
+
+/* Espaciado general de las secciones */
+
+.page-section {
+    position: relative;
+    padding-block: clamp(4rem, 9vw, 8rem);
+}
+
+/* En móviles, menos espacio vertical */
+
+@media (max-width: 640px) {
+    .page-section {
+        padding-block: 4rem;
+    }
+
+    .section-divider {
+        width: calc(100% - 2.5rem);
+    }
+}
+
+/* =================================
+   TEXTURA DE PAPEL
+================================= */
+
+.paper-grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.12;
+}
+
+.paper-grain-nav {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.27' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.12;
+}
+
+/* =================================
+   NAVBAR
+================================= */
+
+.nav-initial {
+    font-family: 'Fraunces', serif;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.055em;
+}
+
+.nav-ampersand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 0.8;
+    margin-inline: 0.02em;
+}
+
+.nav-date {
+    justify-self: end;
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+    color: var(--ivory);
+    opacity: 0.9;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.nav-item {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.025em;
+    color: var(--ivory);
+    opacity: 0.78;
+    white-space: nowrap;
+    text-decoration: none;
+    transition:
+        opacity 300ms ease,
+        letter-spacing 300ms ease;
+}
+
+.nav-item:hover {
+    opacity: 1;
+    letter-spacing: 0.045em;
+}
+
+@media (max-width: 640px) {
+    .nav-initial {
+        font-size: 25px;
+    }
+
+    .nav-ampersand {
+        font-size: 28px;
+    }
+
+    .nav-date {
+        font-size: 16px;
+        letter-spacing: 0.07em;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-initial {
+        font-size: 25px;
+    }
+
+    .nav-ampersand {
+        font-size: 28px;
+    }
+
+    .nav-date {
+        font-size: 16px;
+        letter-spacing: 0.04em;
+    }
+}
+
+/* =================================
+   ACCESIBILIDAD
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+        scroll-snap-type: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
