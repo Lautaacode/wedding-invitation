@@ -4,11 +4,12 @@ import { PaperGrain } from './PaperGrain'
 
 const links = [
     { label: 'Nuestra historia', href: '#story' },
-    { label: 'El día', href: '#day' },
-    { label: 'Galería', href: '#gallery' },
+    { label: 'La noche', href: '#night' },
+    { label: 'Vestimenta', href: '#dresscode' },
     { label: 'Ubicación', href: '#stay' },
+    { label: 'Galería', href: '#gallery' },
     { label: 'Confirmación', href: '#rsvp' },
-    { label: 'Lista de deseos', href: '#registry' },
+    { label: 'Sugerencia de regalos', href: '#registry' },
 ]
 
 const romanDate = 'XI · XII · MMXXVI'

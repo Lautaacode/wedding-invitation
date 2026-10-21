@@ -225,7 +225,7 @@ export function RSVPSection() {
                                             event.target.value,
                                         )
                                     }
-                                    placeholder="Cualquier mensaje que quieras compartir con nosotros"
+                                    placeholder="Escribir nombre del acompañante si te toca +1 y/o cualquier mensaje que quieras compartir con nosotros"
                                     className="input resize-none"
                                 />
                             </Field>

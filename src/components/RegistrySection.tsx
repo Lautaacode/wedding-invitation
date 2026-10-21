@@ -80,7 +80,7 @@ export function RegistrySection() {
                     </div>
 
                     <a
-                        href="https://www.mercadopago.com.ar/"
+                        href="https://www.mercadopago.com.ar/home"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="body-font mt-5 inline-flex items-center justify-center gap-2 border border-(--navy) px-7 py-4 text-[10px] uppercase tracking-[0.2em] text-(--navy) transition-colors duration-300 hover:bg-(--navy) hover:text-(--white)"

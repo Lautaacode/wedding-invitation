@@ -7,7 +7,7 @@ import { SectionHeader } from './SectionHeader'
 export function DaySection() {
     return (
         <section
-            id="day"
+            id="night"
             className="section-white px-6 py-28 sm:py-36"
         >
             <div className="mx-auto max-w-6xl">

@@ -3,10 +3,10 @@ import { useCountdown } from '../hooks/useCountdown'
 import { wedding } from '../config/wedding'
 
 const units = [
-    { key: 'days', label: 'Days' },
-    { key: 'hours', label: 'Hours' },
-    { key: 'minutes', label: 'Minutes' },
-    { key: 'seconds', label: 'Seconds' },
+    { key: 'days', label: 'Dias' },
+    { key: 'hours', label: 'Horas' },
+    { key: 'minutes', label: 'Minutos' },
+    { key: 'seconds', label: 'Segundos' },
 ] as const
 
 export function CountdownSection() {

@@ -1,6 +1,7 @@
 import './App.css'
 import { CountdownSection } from './components/CountdownSection'
 import { DaySection } from './components/DaySection'
+import { DressCodeSection } from './components/DressCodeSection'
 import { Footer } from './components/Footer'
 import { GallerySection } from './components/GallerySection'
 import { Hero } from './components/Hero'
@@ -25,9 +26,11 @@ function App() {
       <hr className="section-divider" />
       <DaySection />
       <hr className="section-divider" />
-      <GallerySection />
+      <DressCodeSection />
       <hr className="section-divider" />
       <StaySection />
+      <hr className="section-divider" />
+      <GallerySection />
       <hr className="section-divider" />
       <RSVPSection />
       <hr className="section-divider" />
