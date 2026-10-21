@@ -121,12 +121,13 @@ export const wedding = {
     },
 
     party: {
-        name: 'La Gran Quinta Super Fiestera',
+        name: 'Quinta residencial del barrio privado',
         type: 'Ubicacion de la fiesta',
-        address: '45 Main Street',
+        address: 'Francisco Narciso de Laprida 1800',
         city: 'Ministro Rivadavia',
         description:
-            'A comfortable option for guests staying overnight. We recommend booking early.',
+            `Quinta donde se llevara a cabo la fiesta de celebracion de los novios,
+            que se compartira con los invitados presentes`,
         mapUrl: 'https://maps.app.goo.gl/SwtehW4sjDUobH1U7',
     },
 
