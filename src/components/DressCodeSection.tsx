@@ -11,7 +11,7 @@ export function DressCodeSection() {
             <div className="mx-auto w-full max-w-3xl text-center">
                 <SectionHeader
                     eyebrow="PARA CELEBRAR JUNTOS"
-                    title="Dress Code"
+                    title="Codigo de vestimenta"
                 />
 
                 <motion.div
@@ -30,20 +30,29 @@ export function DressCodeSection() {
                     </div>
 
                     <h3 className="font-serif text-3xl sm:text-4xl">
-                        Elegante
+                        Elegante Sport
                     </h3>
 
                     <p className="mt-5 max-w-xl text-base leading-8 opacity-75 sm:text-lg">
-                        Queremos compartir con ustedes un día muy especial.
                         Los invitamos a acompañarnos con un look elegante
-                        para celebrar juntos este momento inolvidable.
+                        y relajado, ideal para disfrutar y celebrar juntos
+                        este día tan especial.
                     </p>
 
                     <div className="mt-8 h-px w-16 bg-current/30" />
 
-                    <p className="mt-6 text-sm tracking-wide opacity-65">
-                        ¡Los esperamos!
+                    <p className="mt-6 text-xs uppercase tracking-[0.2em] opacity-60">
+                        A tener en cuenta
                     </p>
+
+                    <p className="mt-3 max-w-lg text-sm leading-7 opacity-80 sm:text-base">
+                        Les pedimos que eviten utilizar los colores
+                        <span className="font-semibold"> blanco </span>
+                        y
+                        <span className="font-semibold"> azul marino</span>.
+                        ¡Gracias por ayudarnos a cuidar cada detalle!
+                    </p>
+
                 </motion.div>
             </div>
         </section>
