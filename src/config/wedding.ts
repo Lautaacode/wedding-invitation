@@ -121,9 +121,9 @@ export const wedding = {
     },
 
     party: {
-        name: 'Quinta residencial del barrio privado',
+        name: 'Quinta residencial en barrio privado',
         type: 'Ubicacion de la fiesta',
-        address: 'Francisco Narciso de Laprida 1800',
+        address: 'Francisco Narciso de Laprida 1850',
         city: 'Ministro Rivadavia',
         description:
             `Quinta donde se llevara a cabo la fiesta de celebracion de los novios,
