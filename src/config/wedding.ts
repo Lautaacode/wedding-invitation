@@ -128,7 +128,7 @@ export const wedding = {
         description:
             `Quinta donde se llevara a cabo la fiesta de celebracion de los novios,
             que se compartira con los invitados presentes`,
-        mapUrl: 'https://maps.app.goo.gl/SwtehW4sjDUobH1U7',
+        mapUrl: 'https://maps.app.goo.gl/H8LSkrQFTnT2QDH1A',
     },
 
     rsvp: {
