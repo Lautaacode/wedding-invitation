@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion'
 import { Shirt } from 'lucide-react'
 import { SectionHeader } from './SectionHeader'
@@ -11,7 +12,7 @@ export function DressCodeSection() {
             <div className="mx-auto w-full max-w-3xl text-center">
                 <SectionHeader
                     eyebrow="PARA CELEBRAR JUNTOS"
-                    title="Codigo de vestimenta"
+                    title="Código de vestimenta"
                 />
 
                 <motion.div
@@ -39,6 +40,11 @@ export function DressCodeSection() {
                         este día tan especial.
                     </p>
 
+                    <p className="mt-5 max-w-xl text-sm leading-7 opacity-80 sm:text-base">
+                        ¡También pueden traer su traje de baño para
+                        disfrutar de la piscina!
+                    </p>
+
                     <div className="mt-8 h-px w-16 bg-current/30" />
 
                     <p className="mt-6 text-xs uppercase tracking-[0.2em] opacity-60">
@@ -52,7 +58,6 @@ export function DressCodeSection() {
                         <span className="font-semibold"> azul marino</span>.
                         ¡Gracias por ayudarnos a cuidar cada detalle!
                     </p>
-
                 </motion.div>
             </div>
         </section>

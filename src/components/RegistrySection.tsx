@@ -79,6 +79,7 @@ export function RegistrySection() {
                         </button>
                     </div>
 
+
                     <a
                         href="https://www.mercadopago.com.ar/home"
                         target="_blank"
@@ -91,6 +92,7 @@ export function RegistrySection() {
                             strokeWidth={1.5}
                         />
                     </a>
+
 
                     <p className="display-font mt-5 text-xs leading-6 text-(--muted)">
                         Gracias por acompañarnos y ser parte de esta nueva etapa.
