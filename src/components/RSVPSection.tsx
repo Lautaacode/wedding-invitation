@@ -1,3 +1,4 @@
+
 import { useRef, useState, type FormEvent } from 'react'
 import { Check, Loader2, CalendarCheck, AlertCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
@@ -52,6 +53,8 @@ export function RSVPSection() {
     ) => {
         event.preventDefault()
 
+        if (loading) return
+
         if (!form.attending) {
             setError('Por favor, seleccioná si vas a asistir o no.')
             return
@@ -78,8 +81,8 @@ export function RSVPSection() {
                     block: 'start',
                 })
             })
-        } catch (error) {
-            console.error('RSVP submission failed:', error)
+        } catch (err) {
+            console.error('RSVP submission failed:', err)
             setError(
                 'Hubo un error al enviar tu confirmación. Por favor, intentá nuevamente más tarde.',
             )
@@ -107,7 +110,6 @@ export function RSVPSection() {
                         <SuccessMessage />
                     ) : (
                         <>
-                            {/* AVISO DESTACADO */}
                             <motion.div
                                 initial={{ opacity: 0, y: 15 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -141,7 +143,6 @@ export function RSVPSection() {
                                 onSubmit={handleSubmit}
                                 className="space-y-10"
                             >
-                                {/* DATOS DEL INVITADO */}
                                 <div className="space-y-6">
                                     <p className="body-font text-xs font-semibold uppercase tracking-[0.2em] text-(--muted-light)">
                                         01 — Tus datos
@@ -155,10 +156,7 @@ export function RSVPSection() {
                                                 autoComplete="given-name"
                                                 value={form.firstName}
                                                 onChange={(event) =>
-                                                    updateField(
-                                                        'firstName',
-                                                        event.target.value,
-                                                    )
+                                                    updateField('firstName', event.target.value)
                                                 }
                                                 placeholder="Tu nombre"
                                                 className="input"
@@ -172,10 +170,7 @@ export function RSVPSection() {
                                                 autoComplete="family-name"
                                                 value={form.lastName}
                                                 onChange={(event) =>
-                                                    updateField(
-                                                        'lastName',
-                                                        event.target.value,
-                                                    )
+                                                    updateField('lastName', event.target.value)
                                                 }
                                                 placeholder="Tu apellido"
                                                 className="input"
@@ -183,10 +178,7 @@ export function RSVPSection() {
                                         </Field>
                                     </div>
 
-                                    <Field
-                                        label="Número de teléfono"
-                                        required
-                                    >
+                                    <Field label="Número de teléfono" required>
                                         <input
                                             type="tel"
                                             required
@@ -194,10 +186,7 @@ export function RSVPSection() {
                                             inputMode="tel"
                                             value={form.phone}
                                             onChange={(event) =>
-                                                updateField(
-                                                    'phone',
-                                                    event.target.value,
-                                                )
+                                                updateField('phone', event.target.value)
                                             }
                                             placeholder="+54 9 11 1234-5678"
                                             className="input"
@@ -205,7 +194,6 @@ export function RSVPSection() {
                                     </Field>
                                 </div>
 
-                                {/* CONFIRMACIÓN DE ASISTENCIA */}
                                 <Field
                                     label="02 — ¿Podrás acompañarnos?"
                                     required
@@ -213,18 +201,14 @@ export function RSVPSection() {
                                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                         <ChoiceButton
                                             active={form.attending === 'yes'}
-                                            onClick={() =>
-                                                handleAttendance('yes')
-                                            }
+                                            onClick={() => handleAttendance('yes')}
                                         >
                                             Sí, voy a asistir
                                         </ChoiceButton>
 
                                         <ChoiceButton
                                             active={form.attending === 'no'}
-                                            onClick={() =>
-                                                handleAttendance('no')
-                                            }
+                                            onClick={() => handleAttendance('no')}
                                         >
                                             No podré asistir
                                         </ChoiceButton>
@@ -237,23 +221,18 @@ export function RSVPSection() {
                                     )}
                                 </Field>
 
-                                {/* MENSAJE OPCIONAL */}
                                 <Field label="03 — Mensaje opcional">
                                     <textarea
                                         rows={4}
                                         value={form.message}
                                         onChange={(event) =>
-                                            updateField(
-                                                'message',
-                                                event.target.value,
-                                            )
+                                            updateField('message', event.target.value)
                                         }
                                         placeholder="Si te corresponde un acompañante (+1), escribí su nombre acá. También podés dejarnos un mensaje."
                                         className="input resize-none"
                                     />
                                 </Field>
 
-                                {/* ERROR DE ENVÍO */}
                                 {error && (
                                     <p
                                         role="alert"
@@ -263,7 +242,6 @@ export function RSVPSection() {
                                     </p>
                                 )}
 
-                                {/* BOTÓN DE ENVÍO DESTACADO */}
                                 <div className="pt-8">
                                     <p className="mb-5 text-center text-sm leading-6 text-(--muted-light)">
                                         Revisá tus datos y enviá tu respuesta.
@@ -277,10 +255,7 @@ export function RSVPSection() {
                                     >
                                         {loading ? (
                                             <>
-                                                <Loader2
-                                                    size={20}
-                                                    className="animate-spin"
-                                                />
+                                                <Loader2 size={20} className="animate-spin" />
                                                 Enviando confirmación...
                                             </>
                                         ) : (
@@ -311,17 +286,13 @@ interface FieldProps {
     children: React.ReactNode
 }
 
-function Field({
-    label,
-    required,
-    children,
-}: FieldProps) {
+function Field({ label, required, children }: FieldProps) {
     return (
         <div>
-            <label className="body-font mb-3 block text-xs font-semibold uppercase tracking-[0.15em] text-(--muted-light)">
+            <p className="body-font mb-3 block text-xs font-semibold uppercase tracking-[0.15em] text-(--muted-light)">
                 {label}
                 {required && ' *'}
-            </label>
+            </p>
 
             {children}
         </div>
@@ -334,18 +305,14 @@ interface ChoiceButtonProps {
     children: React.ReactNode
 }
 
-function ChoiceButton({
-    active,
-    onClick,
-    children,
-}: ChoiceButtonProps) {
+function ChoiceButton({ active, onClick, children }: ChoiceButtonProps) {
     return (
         <button
             type="button"
             aria-pressed={active}
             onClick={onClick}
             className={[
-                'body-font flex min-h-16 items-center justify-center gap-3 rounded-md border-2 px-4 py-5 text-sm font-semibold transition duration-200 sm:text-base',
+                'body-font flex min-h-16 w-full touch-manipulation items-center justify-center gap-3 rounded-md border-2 px-4 py-5 text-sm font-semibold transition-colors duration-200 sm:text-base',
                 active
                     ? 'border-(--ivory) bg-(--ivory) text-(--navy-deep) shadow-md'
                     : 'border-(--ivory)/40 bg-transparent text-(--ivory) hover:border-(--ivory) hover:bg-(--ivory)/10',
