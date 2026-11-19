@@ -41,11 +41,12 @@ export function RSVPSection() {
     }
 
     const handleAttendance = (value: 'yes' | 'no') => {
+        setError('')
+
         setForm((current) => ({
             ...current,
             attending: value,
         }))
-        setError('')
     }
 
     const handleSubmit = async (
@@ -83,6 +84,7 @@ export function RSVPSection() {
             })
         } catch (err) {
             console.error('RSVP submission failed:', err)
+
             setError(
                 'Hubo un error al enviar tu confirmación. Por favor, intentá nuevamente más tarde.',
             )
@@ -137,9 +139,7 @@ export function RSVPSection() {
                                 </div>
                             </motion.div>
 
-                            <motion.form
-                                initial={{ opacity: 0, y: 15 }}
-                                animate={{ opacity: 1, y: 0 }}
+                            <form
                                 onSubmit={handleSubmit}
                                 className="space-y-10"
                             >
@@ -271,7 +271,7 @@ export function RSVPSection() {
                                         este día tan especial.
                                     </p>
                                 </div>
-                            </motion.form>
+                            </form>
                         </>
                     )}
                 </div>
@@ -311,12 +311,10 @@ function ChoiceButton({ active, onClick, children }: ChoiceButtonProps) {
             type="button"
             aria-pressed={active}
             onClick={onClick}
-            className={[
-                'body-font flex min-h-16 w-full touch-manipulation items-center justify-center gap-3 rounded-md border-2 px-4 py-5 text-sm font-semibold transition-colors duration-200 sm:text-base',
-                active
-                    ? 'border-(--ivory) bg-(--ivory) text-(--navy-deep) shadow-md'
-                    : 'border-(--ivory)/40 bg-transparent text-(--ivory) hover:border-(--ivory) hover:bg-(--ivory)/10',
-            ].join(' ')}
+            className={`body-font flex min-h-16 w-full touch-manipulation items-center justify-center gap-3 rounded-md border-2 px-4 py-5 text-sm font-semibold ${active
+                    ? 'border-white bg-white text-slate-900 shadow-md'
+                    : 'border-white/40 bg-transparent text-white'
+                }`}
         >
             {active && <Check size={19} strokeWidth={2.5} />}
             {children}
