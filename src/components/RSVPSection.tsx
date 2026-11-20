@@ -1,5 +1,5 @@
 
-import { useRef, useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Check, Loader2, CalendarCheck, AlertCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { SectionHeader } from './SectionHeader'
@@ -30,6 +30,30 @@ export function RSVPSection() {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
 
+    // Diagnóstico: permite identificar actualizaciones del estado.
+    useEffect(() => {
+        console.log('[RSVP] Estado actualizado:', form.attending)
+    }, [form.attending])
+
+    // Captura errores globales de JavaScript.
+    useEffect(() => {
+        const handleError = (event: ErrorEvent) => {
+            console.error('[RSVP] Error JavaScript:', event.message, event.error)
+        }
+
+        const handleRejection = (event: PromiseRejectionEvent) => {
+            console.error('[RSVP] Error asíncrono:', event.reason)
+        }
+
+        window.addEventListener('error', handleError)
+        window.addEventListener('unhandledrejection', handleRejection)
+
+        return () => {
+            window.removeEventListener('error', handleError)
+            window.removeEventListener('unhandledrejection', handleRejection)
+        }
+    }, [])
+
     const updateField = <K extends keyof FormData>(
         field: K,
         value: FormData[K],
@@ -41,6 +65,8 @@ export function RSVPSection() {
     }
 
     const handleAttendance = (value: 'yes' | 'no') => {
+        console.log('[RSVP] Selección:', value)
+
         setError('')
 
         setForm((current) => ({
@@ -83,7 +109,7 @@ export function RSVPSection() {
                 })
             })
         } catch (err) {
-            console.error('RSVP submission failed:', err)
+            console.error('[RSVP] Error al enviar:', err)
 
             setError(
                 'Hubo un error al enviar tu confirmación. Por favor, intentá nuevamente más tarde.',
@@ -194,10 +220,7 @@ export function RSVPSection() {
                                     </Field>
                                 </div>
 
-                                <Field
-                                    label="02 — ¿Podrás acompañarnos?"
-                                    required
-                                >
+                                <Field label="02 — ¿Podrás acompañarnos?" required>
                                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                         <ChoiceButton
                                             active={form.attending === 'yes'}
